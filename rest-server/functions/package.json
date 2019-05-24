@@ -16,8 +16,7 @@
     "express": "^4.17.0",
     "firebase-admin": "~7.0.0",
     "firebase-functions": "^2.3.0",
-    "mongoose": "^5.5.11",
-    "mongose": "0.0.2-security"
+    "mongoose": "^5.5.11"
   },
   "devDependencies": {
     "eslint": "^5.12.0",
