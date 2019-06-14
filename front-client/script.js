@@ -2,10 +2,16 @@
         var fechaInicio = document.getElementById("fechaInicio");
         var fechaTermino = document.getElementById("fechaTermino");
         function traer(){
-            fetch("https://us-central1-gma-api-rest.cloudfunctions.net/api/mediciones")
+            fetch("https://us-central1-gma-api-rest.cloudfunctions.net/api/mediciones",{
+                method: 'POST', // or 'PUT'
+                body: JSON.stringify({dia:13,mes:6,ano:2019}), // data can be `string` or {object}!
+                headers:{
+                    'Content-Type': 'application/json'
+                }
+            })
             .then(res => res.json())
             .then(datos => {
-                tabla(datos)
+                tabla(datos.datosDB)
                 
             })
 
