@@ -16,16 +16,12 @@
   
   <body>
       <div class="form-group">
-          <label for="usr">Fecha inicio:</label>
-          <input type="datetime-local"  class="form-control" id="fechaInicio" step="1"  >
+          <label for="usr">Dia de analisis:</label>
+          <input type="date"  class="form-control" id="fechaInicio" step="1"  >
         </div>
-        <div class="form-group">
-          <label for="pwd">fecha termino:</label>
-          <input type="datetime-local" class="form-control" id="fechaTermino" step="1">
-    </div>
      
     <div class="container my-5 text-center">
-        <button class="btn btn-danger w-100" onclick="traer()">Obtener datos</button>
+        <button class="btn btn-danger w-100" onclick="recibirFecha()">Obtener datos</button>
         <h5>Sensor 1</h5>
         <div id="myfirstchart1" style="height: 250px;"></div> 
         <h5>Sensor 2</h5>
