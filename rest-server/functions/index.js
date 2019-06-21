@@ -46,7 +46,7 @@ const createServer = () => {
             console.log("max_date:",max_date)
 
             return new Promise( (resolve, reject) => {
-                Measure.find({ "date": { $gt: min_date.toUTCString(), $lt: max_date.toUTCString() } }, (err, datos) => {
+                Measure.find({ "date": { $gte: min_date.toUTCString(), $lte: max_date.toUTCString() } }, (err, datos) => {
                     if(err){
                         reject(err)
                     }
