@@ -35,18 +35,18 @@ const createServer = () => {
             let mes = body.mes-1 || 5;
             let ano = body.ano || 2019;         
 
-            let min_date = new Date(ano,mes,dia)
-            min_date.setMinutes(10);
-            let max_date = new Date()
-            max_date.setDate(min_date.getDate());
-            max_date.setHours(23);
+            let min_date = new Date(ano,mes,dia,0,0,0)
+            min_date.setHours(-4);
+            min_date.setMinutes(1);
+            let max_date = new Date(ano,mes,dia)
+            max_date.setHours(19);
             max_date.setMinutes(59);
             max_date.setSeconds(59);
             console.log("min_date:",min_date)
             console.log("max_date:",max_date)
 
             return new Promise( (resolve, reject) => {
-                Measure.find({ "date": { $gte: min_date.toUTCString(), $lte: max_date.toUTCString() } }, (err, datos) => {
+                Measure.find({ "date": { '$gte': min_date.toUTCString(), '$lte': max_date.toUTCString() } }, (err, datos) => {
                     if(err){
                         reject(err)
                     }
