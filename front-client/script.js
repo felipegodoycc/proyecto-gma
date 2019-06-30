@@ -13,6 +13,7 @@
             var fechaDia= fechaAnalisis.getDate()+1;
             var fechaMes = fechaAnalisis.getMonth()+1;
             var fechaAno = fechaAnalisis.getFullYear();
+
             console.log( `dia : ${fechaDia} mes : ${fechaMes} ano : ${fechaAno}`);
             if (fechaDia==32){
                 var fechaDia = 1;
@@ -61,8 +62,11 @@
                     var dB = (valor.valor+83.2073) / 11.003;
                     var fecha = new Date(valor.date); 
                     console.log(".");
-                    //if(fecha.getHours>=9 && fecha.getHours<=18){
-                    if(contador==0){  
+                    // fecha =  fecha.toISOString();
+
+                    // console.log(fecha.getHours);
+                    if(fecha.getHours()>=8 && fecha.getHours()<18 && dB>15){
+                    // if(contador==0){  
                         contenido.innerHTML += `
                         <tr>
                                     <th scope="row">${valor._id}</th>
