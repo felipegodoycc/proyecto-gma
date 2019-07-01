@@ -62,18 +62,22 @@
                     var dB = (valor.valor+83.2073) / 11.003;
                     var fecha = new Date(valor.date); 
                     console.log(".");
-                    // fecha =  fecha.toISOString();
-
-                    // console.log(fecha.getHours);
                     if(fecha.getHours()>=8 && fecha.getHours()<18 && dB>15){
                     // if(contador==0){  
                         contenido.innerHTML += `
                         <tr>
+                                    <thead>
+                                        <tr>
+                                        <th scope="col">id</th>
+                                        <th scope="col">sensor</th>
+                                        <th scope="col">valor</th>
+                                        <th scope="col">fecha</th>
+                                        </tr>
+                                    </thead>
                                     <th scope="row">${valor._id}</th>
                                     <td>${valor.sensor}</td>
                                     <td>${dB}</td>
                                     <td>${fecha}</td>
-                                    <td>${valor.__v}</td>
                         </tr>
                     
                         `
