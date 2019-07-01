@@ -38,9 +38,8 @@
                 
                 dat = response.datosDB;
                 console.log(dat);
-                 tabla(dat);
-            
-            
+                tabla(dat);           
+                $('#tabla-datos').DataTable();
             } );
          }
             
@@ -62,21 +61,16 @@
                     var dB = (valor.valor+83.2073) / 11.003;
                     var fecha = new Date(valor.date); 
                     console.log(".");
-                    // fecha =  fecha.toISOString();
-
-                    // console.log(fecha.getHours);
                     if(fecha.getHours()>=8 && fecha.getHours()<18 && dB>15){
                     // if(contador==0){  
                         contenido.innerHTML += `
                         <tr>
-                                    <th scope="row">${valor._id}</th>
                                     <td>${valor.sensor}</td>
                                     <td>${dB}</td>
                                     <td>${fecha}</td>
-                                    <td>${valor.__v}</td>
-                        </tr>
-                    
+                        </tr>                    
                         `
+                        
                         if (valor.sensor==1){
                             datos2_id1.push(dB);
                             datos1_id1.push(fecha.getTime());

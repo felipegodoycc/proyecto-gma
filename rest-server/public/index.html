@@ -4,52 +4,66 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
 
-    <title>Hello, world!</title>
+    <title>Reporte GMA</title>
   </head>
   
   <body>
-      <div class="form-group">
-          <label for="usr">Dia de analisis:</label>
-          <input type="date"  class="form-control" id="fechaInicio" step="1"  >
-        </div>
-     
-    <div class="container my-5 text-center">
+    <br>
+    <h3 class="text-center">Red de sensores</h3>
+    <div class="form-group" style="width: 80%; margin: auto">
+        <label for="usr">Dia de analisis:</label>
+        <input type="date"  class="form-control" id="fechaInicio" step="1">
         <button class="btn btn-danger w-100" onclick="recibirFecha()">Obtener datos</button>
-        <h5>Sensor 1</h5>
-        <div id="myfirstchart1" style="height: 250px;"></div> 
-        <h5>Sensor 2</h5>
-        <div id="myfirstchart2" style="height: 250px;"></div> 
-        <h5>Sensor 3</h5>
-        <div id="myfirstchart3" style="height: 250px;"></div> 
-        
-        <div class="mt-5" >
-                <table class="table">
-                        <thead>
-                          <tr>
-                            <th scope="col">id</th>
-                            <th scope="col">sensor</th>
-                            <th scope="col">valor</th>
-                            <th scope="col">fecha</th>
-                            <th scope="col">velocidad</th>
-                          </tr>
-                        </thead>
-                        <tbody id="contenido">
-                          
-                         
-                        </tbody>
-                </table>
-        </div>
+    </div>
+    <br>
+    <div class="container">
+      <div class="row">
+          <div class="col col-lg-6">
+              <h7>Sensor 1</h7>
+              <div id="myfirstchart1" style="height: 250px;"></div> 
+              <h7>Sensor 2</h7>
+              <div id="myfirstchart2" style="height: 250px;"></div> 
+              <h7>Sensor 3</h7>
+              <div id="myfirstchart3" style="height: 250px;"></div> 
+          </div>        
+          <div class="col col-lg-6">
+              <table class="table" id="tabla-datos">
+                  <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">Sensor</th>
+                        <th scope="col">Valor</th>
+                        <th scope="col">Fecha</th>
+                      </tr>
+                  </thead>
+                  <tbody id="contenido">                         
+                  </tbody>
+            </table>
+          </div>
+      </div>   
     </div>
 
  
     <script src="script.js"></script>
+    <script>
+      $(document).ready( function () {
+          $('#tabla-datos').DataTable({
+            "language": {
+              "url": "https://cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+            },
+            "lengthChange": false,
+            "pageLength": 5
+          });
+      } );
+    </script>
 
     
     </body>
